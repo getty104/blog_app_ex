@@ -3,19 +3,16 @@
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Image</th>
-
+      <th>作成日</th>
+      <th>タイトル</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
 <%= for blog <- @blogs do %>
     <tr>
+      <td><%= blog.inserted_at %></td>
       <td><%= blog.title %></td>
-      <td><%= blog.body %></td>
-      <td><%= blog.image %></td>
 
       <td>
         <%= link "Show", to: Routes.admins_blog_path(@conn, :show, blog) %>

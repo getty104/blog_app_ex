@@ -46,7 +46,7 @@ defmodule BlogApp.MixProject do
       {:absinthe_ecto, "~> 0.1.0"},
       {:absinthe_plug, "~> 1.3.0"},
       {:basic_auth, "~> 2.2"},
-      {:earmark, "~> 0.1.17"},
+      {:earmark, "~> 1.3"},
     ]
   end
 

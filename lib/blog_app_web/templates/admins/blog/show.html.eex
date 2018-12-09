@@ -9,7 +9,7 @@
 
   <li>
     <strong>Body:</strong>
-    <%= @blog.body %>
+    <%= parse_markdown(@blog.body) |> raw %>
   </li>
 
   <li>
