@@ -21,6 +21,13 @@ config :blog_app, BlogAppWeb.Endpoint,
     ]
   ]
 
+
+config :blog_app, basic_auth: [
+  username: "test",
+  password: "test",
+  realm: "test"
+]
+
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed

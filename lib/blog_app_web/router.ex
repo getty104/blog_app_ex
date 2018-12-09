@@ -13,10 +13,9 @@ defmodule BlogAppWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", BlogAppWeb do
+  scope "/admin", :"Elixir.BlogAppWeb.Admins", as: :admins do
     pipe_through :browser
-
-    get "/", PageController, :index
+    resources "/blogs", BlogController
   end
 
   # Other scopes may use custom stacks.

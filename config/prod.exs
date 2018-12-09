@@ -17,6 +17,11 @@ config :blog_app, BlogAppWeb.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
+config :blog_app, basic_auth: [
+  username: System.get_env("USERNAME"),
+  password: System.get_env("PASSWORD"),
+  realm: System.get_env("REALM")
+]
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key

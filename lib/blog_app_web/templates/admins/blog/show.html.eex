@@ -1,0 +1,23 @@
+<h1>Show Blog</h1>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @blog.title %>
+  </li>
+
+  <li>
+    <strong>Body:</strong>
+    <%= @blog.body %>
+  </li>
+
+  <li>
+    <strong>Image:</strong>
+    <%= @blog.image %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.admins_blog_path(@conn, :edit, @blog) %></span>
+<span><%= link "Back", to: Routes.admins_blog_path(@conn, :index) %></span>
