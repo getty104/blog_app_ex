@@ -22,6 +22,17 @@ config :blog_app, basic_auth: [
   password: System.get_env("PASSWORD"),
   realm: System.get_env("REALM")
 ]
+
+config :blog_app, BlogAppWeb.Endpoint,
+  secret_key_base: Map.fetch!(System.get_env(), "SECRET_KEY_BASE"),
+  server: true
+
+config :blog_app, BlogApp.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  url: System.get_env("DATABASE_URL"),
+  ssl: true,
+  pool_size: 2
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key
@@ -73,4 +84,4 @@ config :blog_app, basic_auth: [
 
 # Finally import the config/prod.secret.exs which should be versioned
 # separately.
-import_config "prod.secret.exs"
+#import_config "prod.secret.exs"
