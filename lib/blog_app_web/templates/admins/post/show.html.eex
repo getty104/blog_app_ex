@@ -1,0 +1,10 @@
+<h1>
+  <%= @post.title %>
+</h1>
+
+<img src="<%= @post.image %>"/>
+
+<%= parse_markdown(@post.body) |> raw %>
+
+<span><%= link "Edit", to: Routes.admins_post_path(@conn, :edit, @post) %></span>
+<span><%= link "Back", to: Routes.admins_post_path(@conn, :index) %></span>

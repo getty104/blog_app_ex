@@ -6,11 +6,12 @@ defmodule BlogApp.Blogs do
   import Ecto.Query, warn: false
   alias BlogApp.Repo
 
-  alias BlogApp.Blogs.Blog
+  alias BlogApp.Blogs.Post
 
-  def list_blogs do
-    Repo.all(Blog)
+  def list_posts do
+    Repo.all(Post)
   end
 
-  def get_blog!(id), do: Repo.get!(Blog, id)
+  def get_post!(id), do: Repo.get!(Post, id)
+  def get_post(id), do: Repo.get(Post, id)
 end

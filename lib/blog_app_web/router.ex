@@ -23,7 +23,7 @@ defmodule BlogAppWeb.Router do
 
   scope "/admin", :"Elixir.BlogAppWeb.Admins", as: :admins do
     pipe_through :browser
-    resources "/blogs", BlogController
+    resources "/posts", PostController
   end
 
   # Other scopes may use custom stacks.
