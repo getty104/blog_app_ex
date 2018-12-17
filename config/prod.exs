@@ -17,11 +17,12 @@ config :blog_app, BlogAppWeb.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
-config :blog_app, basic_auth: [
-  username: System.get_env("USERNAME"),
-  password: System.get_env("PASSWORD"),
-  realm: System.get_env("REALM")
-]
+config :blog_app,
+  basic_auth: [
+    username: System.get_env("USERNAME"),
+    password: System.get_env("PASSWORD"),
+    realm: System.get_env("REALM")
+  ]
 
 config :blog_app, BlogAppWeb.Endpoint,
   secret_key_base: Map.fetch!(System.get_env(), "SECRET_KEY_BASE"),
@@ -84,4 +85,4 @@ config :blog_app, BlogApp.Repo,
 
 # Finally import the config/prod.secret.exs which should be versioned
 # separately.
-#import_config "prod.secret.exs"
+# import_config "prod.secret.exs"

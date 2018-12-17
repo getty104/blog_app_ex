@@ -21,12 +21,12 @@ config :blog_app, BlogAppWeb.Endpoint,
     ]
   ]
 
-
-config :blog_app, basic_auth: [
-  username: "test",
-  password: "test",
-  realm: "test"
-]
+config :blog_app,
+  basic_auth: [
+    username: "test",
+    password: "test",
+    realm: "test"
+  ]
 
 # ## SSL Support
 #

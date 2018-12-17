@@ -3,66 +3,70 @@ defmodule BlogApp.AdminsTest do
 
   alias BlogApp.Admins
 
-  describe "blogs" do
-    alias BlogApp.Admins.Blog
+  describe "posts" do
+    alias BlogApp.Admins.Post
 
     @valid_attrs %{body: "some body", image: "some image", title: "some title"}
-    @update_attrs %{body: "some updated body", image: "some updated image", title: "some updated title"}
+    @update_attrs %{
+      body: "some updated body",
+      image: "some updated image",
+      title: "some updated title"
+    }
     @invalid_attrs %{body: nil, image: nil, title: nil}
 
-    def blog_fixture(attrs \\ %{}) do
-      {:ok, blog} =
+    def post_fixture(attrs \\ %{}) do
+      {:ok, post} =
         attrs
         |> Enum.into(@valid_attrs)
-        |> Admins.create_blog()
+        |> Admins.create_post()
 
-      blog
+      post
     end
 
-    test "list_blogs/0 returns all blogs" do
-      blog = blog_fixture()
-      assert Admins.list_blogs() == [blog]
+    test "list_posts/0 returns all posts" do
+      post = post_fixture()
+      assert Admins.list_posts() == [post]
     end
 
-    test "get_blog!/1 returns the blog with given id" do
-      blog = blog_fixture()
-      assert Admins.get_blog!(blog.id) == blog
+    test "get_post!/1 returns the post with given id" do
+      post = post_fixture()
+      assert Admins.get_post!(post.id) == post
     end
 
-    test "create_blog/1 with valid data creates a blog" do
-      assert {:ok, %Blog{} = blog} = Admins.create_blog(@valid_attrs)
-      assert blog.body == "some body"
-      assert blog.image == "some image"
-      assert blog.title == "some title"
+    test "create_post/1 with valid data creates a post" do
+      assert {:ok, %Post{} = post} = Admins.create_post(@valid_attrs)
+      assert post.body == "some body"
+      assert post.image == "some image"
+      assert post.title == "some title"
     end
 
-    test "create_blog/1 with invalid data returns error changeset" do
-      assert {:error, %Ecto.Changeset{}} = Admins.create_blog(@invalid_attrs)
+    test "create_post/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Admins.create_post(@invalid_attrs)
     end
 
-    test "update_blog/2 with valid data updates the blog" do
-      blog = blog_fixture()
-      assert {:ok, %Blog{} = blog} = Admins.update_blog(blog, @update_attrs)
-      assert blog.body == "some updated body"
-      assert blog.image == "some updated image"
-      assert blog.title == "some updated title"
+    test "update_post/2 with valid data updates the post" do
+      post = post_fixture()
+      assert {:ok, %Post{} = post} = Admins.update_post(post, @update_attrs)
+      assert post.body == "some updated body"
+      assert post.image == "some updated image"
+      assert post.title == "some updated title"
     end
 
-    test "update_blog/2 with invalid data returns error changeset" do
-      blog = blog_fixture()
-      assert {:error, %Ecto.Changeset{}} = Admins.update_blog(blog, @invalid_attrs)
-      assert blog == Admins.get_blog!(blog.id)
+    test "update_post/2 with invalid data returns error changeset" do
+      post = post_fixture()
+      assert {:error, %Ecto.Changeset{}} = Admins.update_post(post, @invalid_attrs)
+      assert post == Admins.get_post!(post.id)
     end
 
-    test "delete_blog/1 deletes the blog" do
-      blog = blog_fixture()
-      assert {:ok, %Blog{}} = Admins.delete_blog(blog)
-      assert_raise Ecto.NoResultsError, fn -> Admins.get_blog!(blog.id) end
+    test "delete_post/1 deletes the post" do
+      post = post_fixture()
+      assert {:ok, %Post{}} = Admins.delete_post(post)
+      assert_raise Ecto.NoResultsError, fn -> Admins.get_post!(post.id) end
     end
 
-    test "change_blog/1 returns a blog changeset" do
-      blog = blog_fixture()
-      assert %Ecto.Changeset{} = Admins.change_blog(blog)
+    test "change_post/1 returns a post changeset" do
+      post = post_fixture()
+      assert %Ecto.Changeset{} = Admins.change_post(post)
     end
   end
 end

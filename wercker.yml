@@ -1,0 +1,24 @@
+box: shufo/phoenix:1.6.0
+
+services:
+  - id: mariadb
+    name: mysql
+    username: root
+    password: ""
+    tag: latest
+    env:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+
+build:
+  steps:
+    - script:
+        name: mix deps.get
+        code: mix deps.get
+
+        #    - script:
+        #name: mix format --check-formatted
+        #code: mix format --check-formatted
+
+    - script:
+        name: mix test
+        code: mix test
