@@ -1,9 +1,9 @@
-defmodule BlogApp.Blogs.Blog do
+defmodule BlogApp.Blogs.Post do
   use Ecto.Schema
   import Ecto.Changeset
 
 
-  schema "blogs" do
+  schema "posts" do
     field :body, :string
     field :image, :string
     field :title, :string
@@ -12,8 +12,8 @@ defmodule BlogApp.Blogs.Blog do
   end
 
   @doc false
-  def changeset(blog, attrs) do
-    blog
+  def changeset(post, attrs) do
+    post
     |> cast(attrs, [:title, :body, :image])
     |> validate_required([:title, :body])
   end

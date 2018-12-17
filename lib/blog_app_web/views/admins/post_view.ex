@@ -1,4 +1,4 @@
-defmodule BlogAppWeb.Admins.BlogView do
+defmodule BlogAppWeb.Admins.PostView do
   use BlogAppWeb, :view
 
   def parse_markdown(markdown) do
