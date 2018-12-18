@@ -11,7 +11,7 @@ defmodule BlogAppWeb.Schema do
       resolve(&Resolvers.Blog.list_posts/3)
     end
 
-    @desc "Get a user of the blog"
+    @desc "Get a post of the blog"
     field :post, :post do
       arg(:id, non_null(:id))
       resolve(&Resolvers.Blog.find_post/3)
