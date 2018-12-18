@@ -47,7 +47,8 @@ defmodule BlogApp.MixProject do
       {:absinthe_plug, "~> 1.4.0"},
       {:poison, "~> 3.1.0"},
       {:basic_auth, "~> 2.2"},
-      {:earmark, "~> 1.3"}
+      {:earmark, "~> 1.3"},
+      {:cors_plug, "~> 1.2"}
     ]
   end
 

@@ -10,6 +10,11 @@ defmodule BlogAppWeb.Router do
   end
 
   pipeline :api do
+    if Mix.env() == :prod do
+      plug CORSPlug, [origin: "https://getty104.github.io"]
+    else
+      plug CORSPlug, [origin: "http://localhost:3000"]
+    end
   end
 
   scope "/api" do
@@ -17,6 +22,7 @@ defmodule BlogAppWeb.Router do
     forward "/graphiql", Absinthe.Plug.GraphiQL, schema: BlogAppWeb.Schema
 
     forward "/graph", Absinthe.Plug, schema: BlogAppWeb.Schema
+    options "/graph", Absinthe.Plug, :options
   end
 
   scope "/admin", :"Elixir.BlogAppWeb.Admins", as: :admins do
