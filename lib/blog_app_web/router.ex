@@ -11,7 +11,7 @@ defmodule BlogAppWeb.Router do
 
   pipeline :api do
     if Mix.env() == :prod do
-      plug CORSPlug, [origin: "https://getty104.github.io"]
+      plug CORSPlug, [origin: "https://www.getty104.tk"]
     else
       plug CORSPlug, [origin: "http://localhost:3000"]
     end
