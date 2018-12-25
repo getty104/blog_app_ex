@@ -9,7 +9,7 @@ defmodule BlogApp.Blogs do
   alias BlogApp.Blogs.Post
 
   def list_posts do
-    Post |> order_by(desc: :inserted_at) |> Repo.all()
+    from(q in Post, order_by: [desc: q.inserted_at]) |> Repo.all()
   end
 
   def get_post!(id), do: Repo.get!(Post, id)

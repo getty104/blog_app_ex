@@ -18,7 +18,7 @@ defmodule BlogApp.Admins do
 
   """
   def list_posts do
-    Repo.all(Post)
+    from(q in Post, order_by: [desc: q.inserted_at]) |> Repo.all()
   end
 
   @doc """
