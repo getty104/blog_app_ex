@@ -45,6 +45,7 @@ defmodule BlogApp.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:absinthe, "~> 1.4.0"},
       {:absinthe_plug, "~> 1.4.0"},
+      {:absinthe_relay, "~> 1.4"},
       {:poison, "~> 3.1.0"},
       {:basic_auth, "~> 2.2"},
       {:earmark, "~> 1.3"},

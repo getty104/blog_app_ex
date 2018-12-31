@@ -13,12 +13,14 @@ defmodule BlogApp.Admins do
 
   ## Examples
 
-      iex> list_posts()
-      [%Post{}, ...]
+  iex> list_posts()
+  [%Post{}, ...]
 
   """
   def list_posts do
-    from(q in Post, order_by: [desc: q.inserted_at]) |> Repo.all()
+    Post
+    |> order_by(desc: :inserted_at)
+    |> Repo.all()
   end
 
   @doc """
@@ -28,11 +30,11 @@ defmodule BlogApp.Admins do
 
   ## Examples
 
-      iex> get_post!(123)
-      %Post{}
+  iex> get_post!(123)
+  %Post{}
 
-      iex> get_post!(456)
-      ** (Ecto.NoResultsError)
+  iex> get_post!(456)
+  ** (Ecto.NoResultsError)
 
   """
   def get_post!(id), do: Repo.get!(Post, id)
@@ -42,11 +44,11 @@ defmodule BlogApp.Admins do
 
   ## Examples
 
-      iex> create_post(%{field: value})
-      {:ok, %Post{}}
+  iex> create_post(%{field: value})
+  {:ok, %Post{}}
 
-      iex> create_post(%{field: bad_value})
-      {:error, %Ecto.Changeset{}}
+  iex> create_post(%{field: bad_value})
+  {:error, %Ecto.Changeset{}}
 
   """
   def create_post(attrs \\ %{}) do
@@ -60,11 +62,11 @@ defmodule BlogApp.Admins do
 
   ## Examples
 
-      iex> update_post(post, %{field: new_value})
-      {:ok, %Post{}}
+  iex> update_post(post, %{field: new_value})
+  {:ok, %Post{}}
 
-      iex> update_post(post, %{field: bad_value})
-      {:error, %Ecto.Changeset{}}
+  iex> update_post(post, %{field: bad_value})
+  {:error, %Ecto.Changeset{}}
 
   """
   def update_post(%Post{} = post, attrs) do
@@ -78,11 +80,11 @@ defmodule BlogApp.Admins do
 
   ## Examples
 
-      iex> delete_post(post)
-      {:ok, %Post{}}
+  iex> delete_post(post)
+  {:ok, %Post{}}
 
-      iex> delete_post(post)
-      {:error, %Ecto.Changeset{}}
+  iex> delete_post(post)
+  {:error, %Ecto.Changeset{}}
 
   """
   def delete_post(%Post{} = post) do
@@ -94,8 +96,8 @@ defmodule BlogApp.Admins do
 
   ## Examples
 
-      iex> change_post(post)
-      %Ecto.Changeset{source: %Post{}}
+  iex> change_post(post)
+  %Ecto.Changeset{source: %Post{}}
 
   """
   def change_post(%Post{} = post) do
