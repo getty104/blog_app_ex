@@ -1,5 +1,7 @@
 defmodule BlogAppWeb.Schema do
   use Absinthe.Schema
+  use Absinthe.Relay.Schema, :modern
+
   import_types(BlogAppWeb.Schema.BlogTypes)
   import_types(Absinthe.Type.Custom)
 
@@ -7,8 +9,9 @@ defmodule BlogAppWeb.Schema do
 
   query do
     @desc "Get all posts"
-    field :posts, list_of(:post) do
-      resolve(&Resolvers.Blog.list_posts/3)
+    connection field :posts, node_type: :post do
+      arg(:offset, :integer)
+      resolve(&Resolvers.Blog.posts_connection/2)
     end
 
     @desc "Get a post of the blog"

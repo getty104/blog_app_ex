@@ -8,8 +8,9 @@ defmodule BlogApp.Blogs do
 
   alias BlogApp.Blogs.Post
 
-  def list_posts do
-    Post |> order_by(desc: :inserted_at) |> Repo.all()
+  def list_posts_query do
+    Post
+    |> order_by(desc: :inserted_at)
   end
 
   def get_post!(id), do: Repo.get!(Post, id)

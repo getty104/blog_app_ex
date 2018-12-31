@@ -1,5 +1,6 @@
 defmodule BlogAppWeb.Schema.BlogTypes do
   use Absinthe.Schema.Notation
+  use Absinthe.Relay.Schema.Notation, :modern
 
   object :post do
     field :id, non_null(:id)
@@ -8,4 +9,6 @@ defmodule BlogAppWeb.Schema.BlogTypes do
     field :image, :string
     field :inserted_at, non_null(:naive_datetime)
   end
+
+  connection(node_type: :post)
 end
