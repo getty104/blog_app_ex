@@ -1,7 +1,4 @@
-defmodule BlogAppWeb.Schema.BlogScalars do
-  use Absinthe.Schema.Notation
-  use Absinthe.Relay.Schema.Notation, :modern
-
+defmodule BlogAppWeb.Blogs.Scalars.UUID do
   defmacro __using__(_) do
     quote do
       scalar :uuid do

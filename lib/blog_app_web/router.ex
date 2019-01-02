@@ -19,9 +19,9 @@ defmodule BlogAppWeb.Router do
 
   scope "/api" do
     pipe_through :api
-    forward "/graphiql", Absinthe.Plug.GraphiQL, schema: BlogAppWeb.Schema
+    forward "/graphiql", Absinthe.Plug.GraphiQL, schema: BlogAppWeb.Blogs.Schema
 
-    forward "/graph", Absinthe.Plug, schema: BlogAppWeb.Schema
+    forward "/graph", Absinthe.Plug, schema: BlogAppWeb.Blogs.Schema
     options "/graph", Absinthe.Plug, :options
   end
 
