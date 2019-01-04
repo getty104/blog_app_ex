@@ -1,6 +1,6 @@
-<h1>Listing Posts</h1>
-
-<table>
+<h1 class="title">投稿一覧</h1>
+<%= link "New Blog", to: Routes.admins_post_path(@conn, :new), class: "button" %>
+<table class="table">
   <thead>
     <tr>
       <th>作成日</th>
@@ -17,13 +17,12 @@
       <td><%= if post.published, do: "投稿済み", else: "未投稿" %></td>
 
       <td>
-        <%= link "Show", to: Routes.admins_post_path(@conn, :show, post) %>
-        <%= link "Edit", to: Routes.admins_post_path(@conn, :edit, post) %>
-        <%= link "Delete", to: Routes.admins_post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure?"] %>
+        <%= link "Show", to: Routes.admins_post_path(@conn, :show, post), class: "button" %>
+        <%= link "Edit", to: Routes.admins_post_path(@conn, :edit, post), class: "button" %>
+        <%= link "Delete", to: Routes.admins_post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure?"], class: "button" %>
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<span><%= link "New Blog", to: Routes.admins_post_path(@conn, :new) %></span>
