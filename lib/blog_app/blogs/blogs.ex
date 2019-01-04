@@ -10,9 +10,9 @@ defmodule BlogApp.Blogs do
 
   def list_posts_query do
     Post
+    |> where(published: true)
     |> order_by(desc: :inserted_at)
   end
 
-  def get_post!(id), do: Repo.get!(Post, id)
-  def get_post(id), do: Repo.get(Post, id)
+  def get_post(id), do: Post |> where(published: true) |> Repo.get(id)
 end

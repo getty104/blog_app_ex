@@ -6,5 +6,9 @@
 
 <%= parse_markdown(@post.body) |> raw %>
 
+<div>
+  <%= if @post.published, do: "投稿済み", else: "未投稿" %>
+</div>
+
 <span><%= link "Edit", to: Routes.admins_post_path(@conn, :edit, @post) %></span>
 <span><%= link "Back", to: Routes.admins_post_path(@conn, :index) %></span>

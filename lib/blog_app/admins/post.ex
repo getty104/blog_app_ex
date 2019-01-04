@@ -6,6 +6,7 @@ defmodule BlogApp.Admins.Post do
     field :body, :string
     field :image, :string
     field :title, :string
+    field :published, :boolean
 
     timestamps()
   end
@@ -13,7 +14,7 @@ defmodule BlogApp.Admins.Post do
   @doc false
   def changeset(post, attrs) do
     post
-    |> cast(attrs, [:title, :body, :image])
-    |> validate_required([:title, :body])
+    |> cast(attrs, [:title, :body, :image, :published])
+    |> validate_required([:title, :body, :published])
   end
 end

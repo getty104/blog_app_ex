@@ -5,6 +5,7 @@
     <tr>
       <th>作成日</th>
       <th>タイトル</th>
+      <th>投稿状況</th>
       <th></th>
     </tr>
   </thead>
@@ -13,6 +14,7 @@
     <tr>
       <td><%= post.inserted_at %></td>
       <td><%= post.title %></td>
+      <td><%= if post.published, do: "投稿済み", else: "未投稿" %></td>
 
       <td>
         <%= link "Show", to: Routes.admins_post_path(@conn, :show, post) %>
