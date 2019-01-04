@@ -1,5 +1,5 @@
-<h1>Edit Post</h1>
+<h1 class="title">投稿の編集</h1>
 
+<%= link "Back", to: Routes.admins_post_path(@conn, :index), class: "button" %>
 <%= render "form.html", Map.put(assigns, :action, Routes.admins_post_path(@conn, :update, @post)) %>
 
-<span><%= link "Back", to: Routes.admins_post_path(@conn, :index) %></span>
