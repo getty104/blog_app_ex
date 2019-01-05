@@ -1,26 +1,19 @@
 <h1 class="title">投稿一覧</h1>
-<%= link "New Blog", to: Routes.admins_post_path(@conn, :new), class: "button" %>
+<%= link "New Blog", to: Routes.admins_post_path(@conn, :new), class: "button is-fullwidth" %>
 <table class="table">
   <thead>
     <tr>
       <th>作成日</th>
       <th>タイトル</th>
       <th>投稿状況</th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
 <%= for post <- @posts do %>
     <tr>
       <td><%= post.inserted_at %></td>
-      <td><%= post.title %></td>
+      <td><%= link post.title, to: Routes.admins_post_path(@conn, :show, post) %></td>
       <td><%= if post.published, do: "投稿済み", else: "未投稿" %></td>
-
-      <td>
-        <%= link "Show", to: Routes.admins_post_path(@conn, :show, post), class: "button" %>
-        <%= link "Edit", to: Routes.admins_post_path(@conn, :edit, post), class: "button" %>
-        <%= link "Delete", to: Routes.admins_post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure?"], class: "button" %>
-      </td>
     </tr>
 <% end %>
   </tbody>
