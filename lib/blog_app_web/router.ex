@@ -19,15 +19,14 @@ defmodule BlogAppWeb.Router do
 
   scope "/api" do
     pipe_through :api
-    forward "/graphiql", Absinthe.Plug.GraphiQL, schema: BlogAppWeb.Blogs.Schema
-
     forward "/graph", Absinthe.Plug, schema: BlogAppWeb.Blogs.Schema
     options "/graph", Absinthe.Plug, :options
   end
 
-  scope "/admin", :"Elixir.BlogAppWeb.Admins", as: :admins do
+  scope "/admin", as: :admins do
     pipe_through :browser
-    resources "/posts", PostController
+    resources "/posts", BlogAppWeb.Admins.PostController
+    forward "/graphiql", Absinthe.Plug.GraphiQL, schema: BlogAppWeb.Blogs.Schema
   end
 
   # Other scopes may use custom stacks.
