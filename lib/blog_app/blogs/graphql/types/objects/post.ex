@@ -8,8 +8,6 @@ defmodule BlogAppWeb.Blogs.Objects.Post do
         field :image, :string
         field :inserted_at, non_null(:naive_datetime)
       end
-
-      connection(node_type: :post)
     end
   end
 end
