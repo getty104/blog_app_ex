@@ -9,16 +9,16 @@ defmodule BlogAppWeb.Blogs.Schema do
   alias Absinthe.Relay.Connection
 
   query do
-    @desc "Get all posts"
+    @desc "Get posts connection"
     connection field :posts, node_type: :post do
       arg(:offset, :integer)
-      resolve(&Resolvers.Post.posts_connection(convert_offset_to_before(&1), &2))
+      resolve(&Resolvers.list_posts(convert_offset_to_before(&1), &2))
     end
 
     @desc "Get a post of the blog"
     field :post, :post do
       arg(:id, non_null(:uuid))
-      resolve(&Resolvers.Post.find_post/3)
+      resolve(&Resolvers.get_post/3)
     end
   end
 
