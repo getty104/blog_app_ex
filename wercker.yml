@@ -1,24 +1,35 @@
-box: shufo/phoenix:1.6.0
+box: elixir:1.7.3
 
 services:
-  - id: mariadb
-    name: mysql
-    username: root
-    password: ""
-    tag: latest
-    env:
-      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+  services:
+    - id: postgres
+      env:
+        POSTGRES_PASSWORD: postgres
+        POSTGRES_USER: postgres
 
 build:
   steps:
     - script:
-        name: mix deps.get
-        code: mix deps.get
+      name: setup system
+      code: |
+        export MIX_ENV=ci
+        apt-get update
+        apt-get install -y build-essential
 
-        #    - script:
-        #name: mix format --check-formatted
-        #code: mix format --check-formatted
+    - bigtruedata/install-node:
+      version: 8.14.0
 
     - script:
-        name: mix test
-        code: mix test
+      name: setup mix
+      code: |
+        mix local.hex --force
+        mix deps.get --force
+        mix local.rebar --force
+
+    - script:
+      name: lint test
+      code: mix format --check-formatted
+
+    - script:
+      name: background test
+      code: mix test
