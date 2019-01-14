@@ -1,7 +1,7 @@
-defmodule BlogAppWeb.Blogs.Types do
+defmodule BlogApp.Blogs.Types do
   use Absinthe.Schema.Notation
   use Absinthe.Relay.Schema.Notation, :modern
-  use BlogAppWeb.Blogs.Scalars
-  use BlogAppWeb.Blogs.Objects
-  use BlogAppWeb.Blogs.Connections
+  use BlogApp.Blogs.Scalars
+  use BlogApp.Blogs.Objects
+  use BlogApp.Blogs.Connections
 end

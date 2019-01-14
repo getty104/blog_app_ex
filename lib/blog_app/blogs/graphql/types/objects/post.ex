@@ -1,4 +1,4 @@
-defmodule BlogAppWeb.Blogs.Objects.Post do
+defmodule BlogApp.Blogs.Objects.Post do
   defmacro __using__(_) do
     quote do
       object :post do

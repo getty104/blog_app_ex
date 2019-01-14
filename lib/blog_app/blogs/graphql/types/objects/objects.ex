@@ -1,5 +1,5 @@
-defmodule BlogAppWeb.Blogs.Objects do
-  alias BlogAppWeb.Blogs.Objects
+defmodule BlogApp.Blogs.Objects do
+  alias BlogApp.Blogs.Objects
 
   defmacro __using__(_) do
     quote do

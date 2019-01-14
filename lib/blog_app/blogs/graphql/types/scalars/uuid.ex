@@ -1,4 +1,4 @@
-defmodule BlogAppWeb.Blogs.Scalars.UUID do
+defmodule BlogApp.Blogs.Scalars.UUID do
   defmacro __using__(_) do
     quote do
       scalar :uuid do

@@ -1,5 +1,5 @@
-defmodule BlogAppWeb.Blogs.Connections do
-  alias BlogAppWeb.Blogs.Connections
+defmodule BlogApp.Blogs.Connections do
+  alias BlogApp.Blogs.Connections
 
   defmacro __using__(_) do
     quote do

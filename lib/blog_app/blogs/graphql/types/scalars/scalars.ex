@@ -1,5 +1,5 @@
-defmodule BlogAppWeb.Blogs.Scalars do
-  alias BlogAppWeb.Blogs.Scalars
+defmodule BlogApp.Blogs.Scalars do
+  alias BlogApp.Blogs.Scalars
 
   defmacro __using__(_) do
     quote do
