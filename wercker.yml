@@ -1,11 +1,10 @@
 box: elixir:1.7.3
 
 services:
-  services:
-    - id: postgres
-      env:
-        POSTGRES_PASSWORD: postgres
-        POSTGRES_USER: postgres
+  - id: postgres
+    env:
+      PASSWORD: postgres
+      USER: postgres
 
 build:
   steps:
@@ -15,6 +14,11 @@ build:
         export MIX_ENV=ci
         apt-get update
         apt-get install -y build-essential
+
+    - script:
+      name: show env
+      code: printenv
+
 
     - bigtruedata/install-node:
       version: 8.14.0
@@ -33,3 +37,9 @@ build:
     - script:
       name: background test
       code: mix test
+
+    - script:
+      name: Save Cache
+      code: |
+        cp -r _build $WERCKER_CACHE_DIR
+        cp -r deps $WERCKER_CACHE_DIR

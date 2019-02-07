@@ -24,6 +24,10 @@ defmodule BlogAppWeb do
       import Plug.Conn
       import BlogAppWeb.Gettext
       alias BlogAppWeb.Router.Helpers, as: Routes
+
+      if Mix.env() == :prod do
+        plug BasicAuth, use_config: {:blog_app, :basic_auth}
+      end
     end
   end
 
