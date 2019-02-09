@@ -3,7 +3,7 @@ defmodule BlogAppWeb.Admins.PostControllerTest do
 
   alias BlogApp.Admins
 
-  @create_attrs %{body: "some body", image: "some image", title: "some title"}
+  @create_attrs %{body: "some body", image: "some image", title: "some title", published: true}
   @update_attrs %{
     body: "some updated body",
     image: "some updated image",
@@ -19,14 +19,14 @@ defmodule BlogAppWeb.Admins.PostControllerTest do
   describe "index" do
     test "lists all posts", %{conn: conn} do
       conn = get(conn, Routes.admins_post_path(conn, :index))
-      assert html_response(conn, 200) =~ "Listing Posts"
+      assert html_response(conn, 200) =~ "投稿一覧"
     end
   end
 
   describe "new post" do
     test "renders form", %{conn: conn} do
       conn = get(conn, Routes.admins_post_path(conn, :new))
-      assert html_response(conn, 200) =~ "New Post"
+      assert html_response(conn, 200) =~ "新規投稿"
     end
   end
 
@@ -43,7 +43,7 @@ defmodule BlogAppWeb.Admins.PostControllerTest do
 
     test "renders errors when data is invalid", %{conn: conn} do
       conn = post(conn, Routes.admins_post_path(conn, :create), post: @invalid_attrs)
-      assert html_response(conn, 200) =~ "New Post"
+      assert html_response(conn, 200) =~ "新規投稿"
     end
   end
 
@@ -52,7 +52,7 @@ defmodule BlogAppWeb.Admins.PostControllerTest do
 
     test "renders form for editing chosen post", %{conn: conn, post: post} do
       conn = get(conn, Routes.admins_post_path(conn, :edit, post))
-      assert html_response(conn, 200) =~ "Edit Post"
+      assert html_response(conn, 200) =~ "投稿の編集"
     end
   end
 
@@ -69,7 +69,7 @@ defmodule BlogAppWeb.Admins.PostControllerTest do
 
     test "renders errors when data is invalid", %{conn: conn, post: post} do
       conn = put(conn, Routes.admins_post_path(conn, :update, post), post: @invalid_attrs)
-      assert html_response(conn, 200) =~ "Edit Post"
+      assert html_response(conn, 200) =~ "投稿の編集"
     end
   end
 
