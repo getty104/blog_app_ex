@@ -24,6 +24,12 @@ build:
       version: 8.14.0
 
     - script:
+      name: restore cache
+      code: |
+        cp -r $WERCKER_CACHE_DIR/deps .
+        cp -r $WERCKER_CACHE_DIR/_build .
+
+    - script:
       name: setup mix
       code: |
         mix local.hex --force
@@ -39,7 +45,7 @@ build:
       code: mix test
 
     - script:
-      name: Save Cache
+      name: save Cache
       code: |
         cp -r _build $WERCKER_CACHE_DIR
         cp -r deps $WERCKER_CACHE_DIR
