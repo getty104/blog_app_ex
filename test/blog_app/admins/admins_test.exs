@@ -6,11 +6,12 @@ defmodule BlogApp.AdminsTest do
   describe "posts" do
     alias BlogApp.Admins.Post
 
-    @valid_attrs %{body: "some body", image: "some image", title: "some title"}
+    @valid_attrs %{body: "some body", image: "some image", title: "some title", published: true}
     @update_attrs %{
       body: "some updated body",
       image: "some updated image",
-      title: "some updated title"
+      title: "some updated title",
+      published: true
     }
     @invalid_attrs %{body: nil, image: nil, title: nil}
 

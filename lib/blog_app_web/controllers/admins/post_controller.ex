@@ -3,10 +3,6 @@ defmodule BlogAppWeb.Admins.PostController do
   alias BlogApp.Admins
   alias BlogApp.Admins.Post
 
-  if Mix.env() != :test do
-    plug BasicAuth, use_config: {:blog_app, :basic_auth}
-  end
-
   def index(conn, _params) do
     posts = Admins.list_posts()
     render(conn, "index.html", posts: posts)

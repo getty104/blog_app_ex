@@ -12,11 +12,9 @@ config :logger, level: :warn
 # Configure your database
 config :blog_app, BlogApp.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: System.get_env("POSTGRES_ENV_USER"),
+  password: System.get_env("POSTGRES_ENV_USER"),
   database: "postgres#{System.get_env("TEST_ENV_NUMBER")}",
   hostname: System.get_env("POSTGRES_PORT_5432_TCP_ADDR"),
-  socket: System.get_env("POSTGRES_PORT"),
   port: System.get_env("POSTGRES_PORT_5432_TCP_PORT"),
-  pool: Ecto.Adapters.SQL.Sandbox,
-  show_sensitive_data_on_connection_error: true
+  pool: Ecto.Adapters.SQL.Sandbox
