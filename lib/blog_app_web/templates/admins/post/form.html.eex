@@ -5,22 +5,22 @@
     </div>
   <% end %>
 
-  <%= label f, "タイトル" %>
-  <%= text_input f, :title %>
+  <%= label f, "タイトル", class: "label" %>
+  <%= text_input f, :title, class: "input" %>
   <%= error_tag f, :title %>
 
-  <%= label f, "画像" %>
-  <%= text_input f, :image %>
-  <%= error_tag f, :image %>
+  <%= label f, "画像", class: "label" %>
+  <%= text_input f, :image, class: "input" %>
+  <%= error_tag f, :image%>
 
-  <%= label f, "本文" %>
-  <%= textarea f, :body %>
+  <%= label f, "本文", class: "label" %>
+  <%= textarea f, :body, class: "textarea" %>
   <%= error_tag f, :body %>
 
-  <%= label f, "公開する" %><%= checkbox f, :published %>
+  <%= label f, "公開する", class: "checkbox" %><%= checkbox f, :published, class: "checkbox" %>
   <%= error_tag f, :published %>
 
   <div style="margin-top: 24px;">
-    <%= submit "Save" %>
+    <%= submit "Save", class: "button is-link" %>
   </div>
 <% end %>
