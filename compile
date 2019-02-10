@@ -1,3 +1,5 @@
-npm run deploy
+cd $assets_dir
+npm install -g yarn
+yarn run deploy
 cd $phoenix_dir
 mix "${phoenix_ex}.digest"
