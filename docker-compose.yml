@@ -4,24 +4,11 @@ services:
     image: postgres:latest
     volumes:
       - datavol:/var/lib/postgresql/data
+    environment:
+      BIND-ADDRESS: 0.0.0.0
     ports:
       - "5432:5432"
+    tty: true
 
-  web:
-    hostname: web
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_HOST: db
-    build:
-      context: .
-      dockerfile: Dockerfile
-    command: mix phx.server
-    volumes:
-      - .:/blog_app
-    ports:
-      - "4000:4000"
-    depends_on:
-      - db
 volumes:
   datavol:

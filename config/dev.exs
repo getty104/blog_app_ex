@@ -78,5 +78,5 @@ config :blog_app, BlogApp.Repo,
   username: "postgres",
   password: "postgres",
   database: "blog_app_dev",
-  hostname: "db",
+  hostname: "0.0.0.0",
   pool_size: 10
